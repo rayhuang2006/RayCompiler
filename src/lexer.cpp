@@ -63,6 +63,7 @@ int getNextToken() {
         case '*':
         case '/':
         case '>':
+        case '<':
         case '=':
             CurrentOperator = ThisChar;
             return tok_operator;

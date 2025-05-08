@@ -16,7 +16,7 @@ static std::map<char, int> BinopPrecedence = {
 };
 
 static std::unique_ptr<ExprAST> LogError(const char *Str) {
-    std::cerr << "Error" << Str << std::endl;
+    std::cerr << "Error: " << Str << std::endl;
     return nullptr;
 };
 
@@ -24,6 +24,11 @@ static std::unique_ptr<PrototypeAST> LogErrorP(const char *Str) {
     LogError(Str);
     return nullptr;
 }
+
+static std::unique_ptr<FunctionAST> LogErrorF(const char *Str) {
+    std::cerr << "Error: " << Str << std::endl;
+    return nullptr;
+};
 
 //前項聲明
 //筆記：就是先定義好，但是我先不告訴你這個東西是幹什麼用的
@@ -217,13 +222,9 @@ static std::unique_ptr<FunctionAST> ParseDefinition(){
         return nullptr;
     }
 
-    if(CurTok != tok_lparen && CurTok != tok_identifier && CurTok != tok_number && CurTok != tok_if){
-        LogErrorP("expected expression in function body");
-    }
-
     auto E = ParseExpression();
     if(!E){
-        return nullptr;
+        return LogErrorF("Expected expression in function body");
     }
 
     return std::make_unique<FunctionAST>(std::move(Proto), std::move(E));
@@ -258,7 +259,7 @@ static void MainLoop() {
                 break;
             default:
                 if(auto Fn = ParseTopLevelExpr()){
-                    std::cout << "Parsed a top-level definition" << std::endl;
+                    std::cout << "Parsed a top-level expression" << std::endl;
                 } else {
                     getNextTokenP();
                 }

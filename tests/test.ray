@@ -16,12 +16,12 @@ if x < 10.0 then (if x > 3.0 then 1.0 else 0.0) else 2.0;
 
 # Test 4: Error handling
 x = 5.0 + ;
-if x > 2.0 then x else ;
-def foo(x y) x + y;
+if x > 2.0 then x else ; 
+def foo(x y) x + y; 
 square(4.0;
 
 # Test 5: Semicolons and comments
-x = 5.0; # Set x to 5.0
+x = 5.0; # Set x to 5.0 #沒有正確吃到
 ;
 y = x + 1.0; # Add 1.0 to x
 # This is a comment

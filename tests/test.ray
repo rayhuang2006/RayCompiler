@@ -1,0 +1,35 @@
+# Test 1: Basic expressions
+x = 5.0;
+y = 2.0 * (x + 3.0);
+z = x * y - 10.0 / 2.0;
+
+# Test 2: Function definition and calls
+def square(x) x * x;
+def add(a, b) a + b;
+result = square(4.0);
+sum = add(3.0, 5.0);
+
+# Test 3: If-then-else
+x = 5.0;
+if x > 2.0 then x * x else x - 1.0;
+if x < 10.0 then (if x > 3.0 then 1.0 else 0.0) else 2.0;
+
+# Test 4: Error handling
+x = 5.0 + ;
+if x > 2.0 then x else ;
+def foo(x y) x + y;
+square(4.0;
+
+# Test 5: Semicolons and comments
+x = 5.0; # Set x to 5.0
+;
+y = x + 1.0; # Add 1.0 to x
+# This is a comment
+z = y * 2.0;
+
+# Test 6: Comprehensive test
+def max(a, b) if a > b then a else b;
+x = 10.0;
+y = 7.0;
+result = max(x, y) * 2.0;
+if result > 15.0 then result + 1.0 else result - 1.0;

@@ -270,7 +270,7 @@ static void MainLoop() {
 
 //test
 //先編譯：clang++ -std=c++17 src/lexer.cpp src/parser.cpp -Iinclude -o parser_test 
-//然後把它塞進tests裡面，輸入 ./tests/parser_test < ./tests/test.ray
+//然後把它塞進tests裡面，輸入 ./tests/parser_test < ./tests/test_parser.ray
 int main(){
     MainLoop();
     return 0;

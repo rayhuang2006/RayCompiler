@@ -21,7 +21,9 @@ enum Token {
 extern std::string IdentifierStr;
 extern double NumVal;
 extern char CurrentOperator;
+extern int CurTok;
 
 int getNextToken();
+int getNextTOkenP();
 
 #endif

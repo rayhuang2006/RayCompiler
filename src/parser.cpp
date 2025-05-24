@@ -6,7 +6,7 @@
 
 static int CurTok;
 
-static int getNextTokenP(){
+int getNextTokenP(){
     CurTok = getNextToken();
     return CurTok;
 }
@@ -215,7 +215,7 @@ static std::unique_ptr<PrototypeAST> ParsePrototype() {
 }
 
 //解析函數定義
-static std::unique_ptr<FunctionAST> ParseDefinition(){
+std::unique_ptr<FunctionAST> ParseDefinition(){
     getNextTokenP();
     auto Proto = ParsePrototype();
     if(!Proto){
@@ -232,7 +232,7 @@ static std::unique_ptr<FunctionAST> ParseDefinition(){
 
 //解析頂層表達式
 //把函數結構串起來
-static std::unique_ptr<FunctionAST>ParseTopLevelExpr(){
+std::unique_ptr<FunctionAST>ParseTopLevelExpr(){
     if(auto E = ParseExpression()){
         auto Proto = std::make_unique<PrototypeAST>("", std::vector<std::string>());
         return std::make_unique<FunctionAST>(std::move(Proto), std::move(E));
@@ -271,7 +271,7 @@ static void MainLoop() {
 //test
 //先編譯：clang++ -std=c++17 src/lexer.cpp src/parser.cpp -Iinclude -o parser_test 
 //然後把它塞進tests裡面，輸入 ./tests/parser_test < ./tests/test_parser.ray
-int main(){
-    MainLoop();
-    return 0;
-}
+// int main(){
+//     MainLoop();
+//     return 0;
+// }

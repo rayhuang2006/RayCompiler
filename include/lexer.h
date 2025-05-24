@@ -24,6 +24,5 @@ extern char CurrentOperator;
 extern int CurTok;
 
 int getNextToken();
-int getNextTOkenP();
 
 #endif
